@@ -1,5 +1,5 @@
 const express = require('express');
-const usersRouter = require('./Routes/users');
+const usersRouter = require('./routes/users');
 
 class Server{
     constructor() {
@@ -29,3 +29,5 @@ class Server{
         });
     }
 }
+
+module.exports = Server;
