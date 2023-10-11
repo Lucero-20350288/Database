@@ -4,6 +4,14 @@ const usermodels = {
     * 
     FROM 
     Users`,
+    getByID:`
+        SELECT
+            *
+        FROM
+            Users
+        WHERE
+            id = ?
+    `,
 
 }
 
