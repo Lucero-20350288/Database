@@ -1,9 +1,10 @@
 const usermodels = {
     getAll: `
-    SELECT 
-    * 
-    FROM 
-    Users`,
+        SELECT 
+            * 
+        FROM 
+            Users
+    `,
     getByID:`
         SELECT
             *
@@ -12,7 +13,20 @@ const usermodels = {
         WHERE
             id = ?
     `,
-
+    addRow: `
+        INSERT INTO
+            Users (
+                username,
+                email,
+                password,
+                name,
+                lastname,
+                phone_number,
+                role_id,
+                is_active
+            )
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?)
+    `,
 }
 
 module.exports = usermodels;
