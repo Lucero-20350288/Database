@@ -43,6 +43,17 @@ const usermodels = {
         WHERE
             email = ?
     `,
+    UpdateRow: `
+        PENDIENTE
+    `,
+    deleteRow: `
+        UPDATE
+            Users
+        SET
+            is_active = 0
+        WHERE
+            id = ?
+    `,
 }
 
 module.exports = usermodels;
