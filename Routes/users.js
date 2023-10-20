@@ -1,5 +1,5 @@
 const{Router} = require('express');
-const {listUsers, listUserByID, addUser, deleteUser} = require('../controllers/users')
+const {listUsers, listUserByID, addUser, updateUser, deleteUser} = require('../controllers/users')
 
 const router = Router();
 
@@ -8,6 +8,7 @@ router.get('/', listUsers);
 router.get('/:id', listUserByID);
 //router.post('/', listUsers);
 router.put('/', addUser);
+router.patch('/:id', updateUser); //moví aquí
 //router.patch('/', listUsers);
 router.delete('/:id', deleteUser);
 
