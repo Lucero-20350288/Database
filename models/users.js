@@ -43,7 +43,8 @@ const usermodels = {
         WHERE
             email = ?
     `,
-    updateUser: `
+
+    /*updateUser: `
         UPDATE
             Users
         SET 
@@ -56,7 +57,24 @@ const usermodels = {
             is_active = ?
         WHERE
             id = ?
-    `,
+    `,*/
+
+    updateUser: `
+        UPDATE 
+            Users
+        SET 
+            username = ?,
+            email = ?,
+            password = ?,
+            name = ?,
+            lastname = ?,
+            phone_number = ?,
+            role_id = ?,
+            is_active = ?
+        WHERE
+            id = ?
+`,
+
     deleteRow: `
         UPDATE
             Users

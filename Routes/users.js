@@ -8,8 +8,8 @@ router.get('/', listUsers);
 router.get('/:id', listUserByID);
 //router.post('/', listUsers);
 router.put('/', addUser);
-router.patch('/:id', updateUser); //moví aquí
-//router.patch('/', listUsers);
+//router.patch('/:id', updateUser); //moví aquí
+router.patch('/:id', updateUser);
 router.delete('/:id', deleteUser);
 
 module.exports = router;
