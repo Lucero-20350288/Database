@@ -1,4 +1,5 @@
 const {request, response} = require('express');
+const bcrypt = require('bcrypt');
 const usersModel = require('../models/users');
 const pool=require('../db');
 
@@ -86,7 +87,19 @@ const addUser = async (req = request, res = response) => {
         return;
     }
 
-    const user = [username, email, password, name, lastname, phone_number, role_id, is_active]
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hash(password, saltRounds);
+
+    const user = [
+      username,
+      email,
+      passwordHash,
+      name,
+      lastname,
+      phone_number,
+      role_id,
+      is_active
+    ]
 
     let conn;
 
@@ -216,7 +229,7 @@ const addUser = async (req = request, res = response) => {
 // finaliza el endpoint
 */
 
-const updateUser=async(req, res)=>{
+const updateUser = async (req, res) => {
   const {
       username,
       email,
