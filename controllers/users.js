@@ -241,10 +241,17 @@ const updateUser = async (req, res) => {
       is_active ,
   } = req.body;
 
+  let passwordHash
+  if(password) {
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hash(password, saltRounds);
+  }
+
 const {id} = req.params;
 let newUserData=[
   username,
   email,
+  passwordHash,
   password,
   name,
   lastname,
